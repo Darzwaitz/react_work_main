@@ -1,7 +1,12 @@
 import "./App.css";
+import Pizza from "./components/Pizza";
 
 function App() {
-  return <h1>Tesht</h1>;
+  return (
+    <div>
+      <Pizza />
+    </div>
+  );
 }
 
 export default App;
