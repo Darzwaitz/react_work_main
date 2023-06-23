@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import Pizza from "./components/Pizza";
 
 const pizzaData = [
@@ -46,6 +46,23 @@ const pizzaData = [
   },
 ];
 
+function Header() {
+  return (
+    <header className="header">
+      <h1>Fast Pizza</h1>
+    </header>
+  );
+}
+
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza />
+    </main>
+  );
+}
+
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 8;
@@ -53,19 +70,20 @@ function Footer() {
   const isOpen = hour >= openHour && hour <= closeHour;
 
   return (
-    <footer>
+    <footer className="footer">
       <h3 style={{ display: "inline-block" }}>
-        {new Date().toLocaleDateString()}
-      </h3>{" "}
-      <h4 style={{ display: "inline-block" }}>We're currently open</h4>
+        {new Date().toLocaleDateString()}....
+      </h3>
+      <h4 style={{ display: "inline-block" }}> We're currently open</h4>
     </footer>
   );
 }
 
 function App() {
   return (
-    <div>
-      <Pizza />
+    <div className="container">
+      <Header />
+      <Menu />
       <Footer />
     </div>
   );
