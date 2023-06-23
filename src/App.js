@@ -46,10 +46,27 @@ const pizzaData = [
   },
 ];
 
+function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 8;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+
+  return (
+    <footer>
+      <h3 style={{ display: "inline-block" }}>
+        {new Date().toLocaleDateString()}
+      </h3>{" "}
+      <h4 style={{ display: "inline-block" }}>We're currently open</h4>
+    </footer>
+  );
+}
+
 function App() {
   return (
     <div>
       <Pizza />
+      <Footer />
     </div>
   );
 }
