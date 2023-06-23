@@ -1,5 +1,5 @@
 import "./index.css";
-import Pizza from "./components/Pizza";
+import Menu from "./components/Menu";
 
 const pizzaData = [
   {
@@ -54,15 +54,6 @@ function Header() {
   );
 }
 
-function Menu() {
-  return (
-    <main className="menu">
-      <h2>Our Menu</h2>
-      <Pizza />
-    </main>
-  );
-}
-
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 8;
@@ -72,7 +63,7 @@ function Footer() {
   return (
     <footer className="footer">
       <h3 style={{ display: "inline-block" }}>
-        {new Date().toLocaleDateString()}....
+        {new Date().toLocaleDateString()}&nbsp;&nbsp;&nbsp;&nbsp;
       </h3>
       <h4 style={{ display: "inline-block" }}> We're currently open</h4>
     </footer>
