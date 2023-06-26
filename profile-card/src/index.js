@@ -1,5 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import Avatar from "./components/Avatar";
+import Intro from "./components/Intro";
+import SkillList from "./components/SkillList";
 import "./styles.css";
 
 function App() {
