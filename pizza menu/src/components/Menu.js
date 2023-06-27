@@ -1,23 +1,15 @@
 import Pizza from "./Pizza";
 
-const Menu = () => {
+const Menu = ({ pizzaData }) => {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        price={12}
-        photoName="pizzas/spinaci.jpg"
-        altTxt="Pizza Spinaci"
-      />
-      <Pizza
-        name="Pizza Margherita"
-        ingredients="Tomato and mozarella"
-        price={10}
-        photoName="pizzas/margherita.jpg"
-        altTxt="Pizza Margherita"
-      />
+
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
     </main>
   );
 };

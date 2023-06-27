@@ -9,7 +9,10 @@ const Footer = () => {
       <h3 style={{ display: "inline-block" }}>
         {new Date().toLocaleDateString()}&nbsp;&nbsp;&nbsp;&nbsp;
       </h3>
-      <h4 style={{ display: "inline-block" }}> We're currently open</h4>
+      <h4 style={{ display: "inline-block" }}>
+        {" "}
+        {isOpen ? "We're currently open" : "We're currently closed"}
+      </h4>
     </footer>
   );
 };
