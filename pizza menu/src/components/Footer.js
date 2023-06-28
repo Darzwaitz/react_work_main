@@ -6,13 +6,15 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <h3 style={{ display: "inline-block" }}>
-        {new Date().toLocaleDateString()}&nbsp;&nbsp;&nbsp;&nbsp;
-      </h3>
-      <h4 style={{ display: "inline-block" }}>
-        {" "}
-        {isOpen ? "We're currently open" : "We're currently closed"}
-      </h4>
+      {isOpen && (
+        <div className="order">
+          <p>
+            We're open until {closeHour}:00. &nbsp;&nbsp; Please drop in or
+            Order online:
+          </p>
+          <button className="btn">Order</button>
+        </div>
+      )}
     </footer>
   );
 };

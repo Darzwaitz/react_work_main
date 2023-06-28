@@ -1,12 +1,12 @@
 const Pizza = (props) => {
-  const pizza = props.pizzaObj;
+  const { pizzaObj } = props;
   return (
     <li className="pizza">
-      <img src={pizza.photoName} alt={pizza.altTxt} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.altTxt} />
       <div>
-        <h1>{pizza.name}</h1>
-        <p>{pizza.ingredients}</p>
-        <span>{pizza.price + 3}</span>
+        <h1>{pizzaObj.name}</h1>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price + 3}</span>
       </div>
     </li>
   );
