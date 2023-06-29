@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
           <p>
             We're open until {closeHour}:00. &nbsp;&nbsp; Please drop in or
@@ -14,6 +14,11 @@ const Footer = () => {
           </p>
           <button className="btn">Order</button>
         </div>
+      ) : (
+        <p>
+          We are closed now - we're open @ {openHour}:00 and close @ {closeHour}
+          :00
+        </p>
       )}
     </footer>
   );
