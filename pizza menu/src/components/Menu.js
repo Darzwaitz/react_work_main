@@ -10,11 +10,19 @@ const Menu = ({ pizzaData }) => {
       <h2>Our Menu</h2>
 
       {numPizzas > 0 && (
-        <ul className="pizzas">
-          {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Reprehenderit, veniam incidunt! Cupiditate ea, animi hic quidem
+            quibusdam consequuntur. Autem deleniti exercitationem soluta.
+          </p>
+
+          <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
       )}
     </main>
   );

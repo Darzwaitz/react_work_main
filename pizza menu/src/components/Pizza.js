@@ -1,5 +1,4 @@
-const Pizza = (props) => {
-  const { pizzaObj } = props;
+const Pizza = ({ pizzaObj }) => {
   return (
     <li className="pizza">
       <img src={pizzaObj.photoName} alt={pizzaObj.altTxt} />
