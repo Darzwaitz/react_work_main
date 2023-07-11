@@ -34,7 +34,7 @@ export default function App() {
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
@@ -124,10 +124,17 @@ function Item({ item, onDeleteItem, onToggleItem }) {
   );
 }
 
-function Stats() {
+function Stats({ items }) {
+  const numItems = items.length;
+  const numPacked = items.filter((item) => item.packed).length;
+
   return (
     <footer className="stats">
-      <em>You have X items on your list...</em>
+      <em>
+        You have {numItems} item{numItems === 1 ? "" : "s"} on your list...and
+        you have packed&nbsp;
+        {numPacked} item{numPacked === 1 ? "" : "s"}
+      </em>
     </footer>
   );
 }
