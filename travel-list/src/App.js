@@ -147,6 +147,7 @@ function Stats({ items }) {
         you have packed 
         ${numPacked} item${numPacked === 1 ? "" : "s"} - (
         ${percentPacked ? percentPacked : 0}%)`}
+        To FIX!! {/* ${percentPacked ? percentPacked : 0}% */}
       </em>
     </footer>
   );
