@@ -125,6 +125,13 @@ function Item({ item, onDeleteItem, onToggleItem }) {
 }
 
 function Stats({ items }) {
+  if (!items.length)
+    return (
+      <p className="stats">
+        <em>Start adding items...</em>
+      </p>
+    );
+
   const numItems = items.length;
   const numPacked = items.filter((item) => item.packed).length;
   const percentPacked = Math.round(numPacked / numItems) * 100;
