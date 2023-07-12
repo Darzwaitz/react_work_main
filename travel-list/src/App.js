@@ -134,7 +134,7 @@ function Stats({ items }) {
 
   const numItems = items.length;
   const numPacked = items.filter((item) => item.packed).length;
-  const percentPacked = Math.round(numPacked / numItems) * 100;
+  const percentPacked = Math.round((numPacked / numItems) * 100);
 
   return (
     <footer className="stats">
@@ -147,7 +147,6 @@ function Stats({ items }) {
         you have packed 
         ${numPacked} item${numPacked === 1 ? "" : "s"} - (
         ${percentPacked ? percentPacked : 0}%)`}
-        To FIX!! {/* ${percentPacked ? percentPacked : 0}% */}
       </em>
     </footer>
   );
