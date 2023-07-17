@@ -39,20 +39,13 @@ function App() {
               bgColour="#7950f2"
               textColour="#fff"
               onClick={handlePrevious}
-              text="Previous"
-            />
-            <Button
-              bgColour="#7950f2"
-              textColour="#fff"
-              onClick={handleNext}
-              text="Next"
-            />
-            {/* <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handleNext}
             >
-              Next
-            </button> */}
+              <span>👈🏻</span> Previous
+            </Button>
+
+            <Button bgColour="#7950f2" textColour="#fff" onClick={handleNext}>
+              <span>👉🏻</span> Next
+            </Button>
           </div>
         </div>
       )}
@@ -60,13 +53,13 @@ function App() {
   );
 }
 
-function Button({ textColour, bgColour, onClick, text }) {
+function Button({ textColour, bgColour, onClick, children }) {
   return (
     <button
       style={{ backgroundColor: bgColour, color: textColour }}
       onClick={onClick}
     >
-      {text}
+      {children}
     </button>
   );
 }
