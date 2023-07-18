@@ -42,10 +42,10 @@ function SelectPercentage({ children }) {
   );
 }
 function Output() {
-  return <h1>shtart</h1>;
+  return <h3>You pay X ($A + $B tip)</h3>;
 }
 function Reset() {
-  return <h1>shtart</h1>;
+  return <button>Reset</button>;
 }
 
 export default App;
