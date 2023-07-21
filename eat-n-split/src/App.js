@@ -78,7 +78,15 @@ function FormAddFriend() {
       <label>Img Url</label>
       <input type="text" />
 
-      <button className="button">Select</button>
+      <button className="button">Add</button>
+    </form>
+  );
+}
+
+function FormSplitBill() {
+  return (
+    <form className="form-split-bill">
+      <h2>Split a bill with</h2>
     </form>
   );
 }
