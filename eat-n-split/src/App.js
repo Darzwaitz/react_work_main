@@ -37,8 +37,9 @@ export default function App() {
     setShowAddFriend((show) => !show);
   }
 
-  function handleAddFriend({ friend }) {
+  function handleAddFriend(friend) {
     setFriends((friends) => [...friends, friend]);
+    setShowAddFriend(false);
   }
   return (
     <div className="app">
