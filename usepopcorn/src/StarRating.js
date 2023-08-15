@@ -16,12 +16,15 @@ export default function StarRating({
   size = 48,
   className = "test",
   messages = [],
+  defaultRating = 0,
+  onSetRating,
 }) {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating(rating);
   }
 
   const textStyle = {
@@ -48,7 +51,7 @@ export default function StarRating({
       </div>
       <p style={textStyle}>
         {messages.length === maxRating
-          ? messages[rating - 1]
+          ? messages[tempRating ? tempRating - 1 : rating - 1]
           : tempRating || rating || ""}
       </p>
     </div>
