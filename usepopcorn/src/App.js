@@ -80,7 +80,8 @@ export default function App() {
         <NumResults movies={movies} />
       </NavBar>
       <Main>
-        <Box element={<MovieList movies={movies} />} />
+        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
+
         <Box
           element={
             <>
@@ -99,6 +100,10 @@ export default function App() {
       </Main>
     </>
   );
+}
+
+function Loader() {
+  return <p className="loader">Loading...</p>;
 }
 
 function NavBar({ children }) {
