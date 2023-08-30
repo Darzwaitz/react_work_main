@@ -91,9 +91,26 @@ class App extends React.Component {
         </div>
         <button onClick={this.fetchWeather}>Get Weather</button>
         {this.state.isLoading && <p className="loader">Loading...</p>}
+        {this.state.weather.weatherCode && (
+          <Weather
+            weather={this.state.weather}
+            location={this.state.location}
+          />
+        )}
+        )
       </div>
     );
   }
 }
 
 export default App;
+
+class Weather extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Weather</h2>
+      </div>
+    );
+  }
+}
