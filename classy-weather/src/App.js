@@ -119,8 +119,15 @@ class Weather extends React.Component {
       <div>
         <h2>Weather {this.props.location}</h2>
         <ul className="weather">
-          {dates.map((date) => (
-            <Day />
+          {dates.map((date, i) => (
+            <Day
+              date={date}
+              max={max.at(i)}
+              min={min.at(i)}
+              code={codes.at(i)}
+              key={date}
+              isToday={i === 0}
+            />
           ))}
         </ul>
       </div>
@@ -130,6 +137,16 @@ class Weather extends React.Component {
 
 class Day extends React.Component {
   render() {
-    return <li>Day</li>;
+    const { date, max, min, code, isToday } = this.props;
+
+    return (
+      <li className="day">
+        <span>{getWeatherIcon(code)}</span>
+        <p>{isToday ? "Today" : formatDay(date)}</p>
+        <p>
+          {Math.floor(min)}&deg; &mdash; {Math.round(max)}&deg;
+        </p>
+      </li>
+    );
   }
 }
