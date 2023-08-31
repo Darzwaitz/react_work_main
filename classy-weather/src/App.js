@@ -90,14 +90,15 @@ class App extends React.Component {
           />
         </div>
         <button onClick={this.fetchWeather}>Get Weather</button>
+
         {this.state.isLoading && <p className="loader">Loading...</p>}
-        {this.state.weather.weatherCode && (
+
+        {this.state.weather.weathercode && (
           <Weather
             weather={this.state.weather}
-            location={this.state.location}
+            location={this.state.displayLocation}
           />
         )}
-        )
       </div>
     );
   }
@@ -107,10 +108,28 @@ export default App;
 
 class Weather extends React.Component {
   render() {
+    const {
+      temperature_2m_max: max,
+      temperature_2m_min: min,
+      time: dates,
+      weathercode: codes,
+    } = this.props.weather;
+
     return (
       <div>
-        <h2>Weather</h2>
+        <h2>Weather {this.props.location}</h2>
+        <ul className="weather">
+          {dates.map((date) => (
+            <Day />
+          ))}
+        </ul>
       </div>
     );
+  }
+}
+
+class Day extends React.Component {
+  render() {
+    return <li>Day</li>;
   }
 }
