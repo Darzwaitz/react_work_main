@@ -76,6 +76,11 @@ class App extends React.Component {
 
   setLocation = (e) => this.setState({ location: e.target.value });
 
+  // called immediately after app render
+  componentDidMount() {
+    this.fetchWeather();
+  }
+
   render() {
     return (
       <div className="app">
