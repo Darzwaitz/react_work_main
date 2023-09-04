@@ -68,7 +68,7 @@ class App extends React.Component {
       const weatherData = await weatherRes.json();
       this.setState({ weather: weatherData.daily });
     } catch (err) {
-      console.err(err);
+      // console.err(err);
     } finally {
       this.setState({ isLoading: false });
     }
@@ -77,8 +77,16 @@ class App extends React.Component {
   setLocation = (e) => this.setState({ location: e.target.value });
 
   // called immediately after app render
+  // near equiv to useEffect[]
   componentDidMount() {
     this.fetchWeather();
+  }
+
+  // near equiv to useEffect[location] - diff is componentDidUpdate is not called on mount - only re-render
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.location !== prevState.location) {
+      this.fetchWeather();
+    }
   }
 
   render() {
@@ -90,7 +98,7 @@ class App extends React.Component {
           onChangeLocation={this.setLocation}
         />
 
-        <button onClick={this.fetchWeather}>Get Weather</button>
+        {/* <button onClick={this.fetchWeather}>Get Weather</button> */}
 
         {this.state.isLoading && <p className="loader">Loading...</p>}
 
