@@ -34,7 +34,7 @@ function formatDay(dateStr) {
 
 class App extends React.Component {
   state = {
-    location: "Dublin",
+    location: "",
     isLoading: false,
     displayLocation: "",
     weather: {},
@@ -42,6 +42,8 @@ class App extends React.Component {
 
   // async fetchWeather() {
   fetchWeather = async () => {
+    if (this.state.location.length < 2) return;
+
     try {
       this.setState({ isLoading: true });
 
@@ -79,13 +81,17 @@ class App extends React.Component {
   // called immediately after app render
   // near equiv to useEffect[]
   componentDidMount() {
-    this.fetchWeather();
+    // this.fetchWeather();
+
+    this.setState({ location: localStorage.getItem("location") || "" });
   }
 
   // near equiv to useEffect[location] - diff is componentDidUpdate is not called on mount - only re-render
   componentDidUpdate(prevProps, prevState) {
     if (this.state.location !== prevState.location) {
       this.fetchWeather();
+
+      localStorage.setItem("Location", this.state.location);
     }
   }
 
@@ -131,6 +137,10 @@ class Input extends React.Component {
 }
 
 class Weather extends React.Component {
+  componentWillUnmount() {
+    console.log("Weather will unmount");
+  }
+
   render() {
     const {
       temperature_2m_max: max,
