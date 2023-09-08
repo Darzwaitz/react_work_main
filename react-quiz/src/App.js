@@ -18,6 +18,8 @@ function reducer(state, action) {
         question: action.payload,
         status: "ready",
       };
+    default:
+      throw new Error("Action unknown");
   }
 }
 
