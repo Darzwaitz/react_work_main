@@ -1,11 +1,13 @@
-import React from "react";
+// import React from "react";
 
-function StartScreen() {
+function StartScreen({ numQuestions }) {
   return (
-    <div>
+    <div
+      style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+    >
       <h2>Welcome to the React quiz</h2>
-      <h3>X questions to test your React mastery</h3>
-      <button>Let's start</button>
+      <h3>{numQuestions} questions to test your React mastery</h3>
+      <button className="btn btn-ui">Let's start</button>
     </div>
   );
 }
