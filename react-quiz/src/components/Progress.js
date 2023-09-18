@@ -1,4 +1,4 @@
-function Progress({ index, numQuestions }) {
+function Progress({ index, numQuestions, points }) {
   return (
     <header className="progress">
       <p>
@@ -6,7 +6,7 @@ function Progress({ index, numQuestions }) {
       </p>
 
       <p>
-        <strong>{points}</strong>
+        <strong>{points} / X</strong>
       </p>
     </header>
   );
