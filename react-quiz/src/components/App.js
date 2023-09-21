@@ -21,6 +21,7 @@ const initialState = {
   answer: null,
   points: 0,
   highscore: 0,
+  secondsRemaining: 10,
 };
 
 function reducer(state, action) {
@@ -66,6 +67,12 @@ function reducer(state, action) {
         ...initialState,
         questions: state.questions,
         status: "ready",
+      };
+
+    case "tick":
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
       };
 
     default:
@@ -115,7 +122,7 @@ function App() {
               answer={answer}
             />
             <Footer>
-              <Timer />
+              <Timer dispatch={dispatch} />
               <NextButton
                 dispatch={dispatch}
                 answer={answer}
