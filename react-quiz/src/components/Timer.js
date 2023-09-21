@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 
 function Timer({ dispatch, secondsRemaining }) {
   useEffect(() => {
-    setInterval(() => {
+    const id = setInterval(() => {
       // console.log("tick");
       dispatch({ type: "tick" });
     }, 1000);
+
+    return () => clearInterval(id);
   }, [dispatch]);
 
   return <div className="timer">{secondsRemaining}</div>;
