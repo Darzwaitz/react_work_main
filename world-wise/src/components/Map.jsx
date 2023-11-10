@@ -29,6 +29,14 @@ function Map() {
     if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
   });
 
+  useEffect(
+    function () {
+      if (geolocationPosition)
+        setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+    },
+    [geolocationPosition]
+  );
+
   return (
     <div className={styles.mapContainer} onClick={() => navigate("form")}>
       <Button type="position" onClick={getPosition}>
