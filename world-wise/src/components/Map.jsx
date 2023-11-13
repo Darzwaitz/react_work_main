@@ -1,4 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
+import Button from "./Button";
 import styles from "./Map.module.css";
 import {
   MapContainer,
@@ -38,10 +39,12 @@ function Map() {
   );
 
   return (
-    <div className={styles.mapContainer} onClick={() => navigate("form")}>
-      <Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "Loading..." : "Use your position"}
-      </Button>
+    <div className={styles.mapContainer}>
+      {!geolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your position"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={6}
