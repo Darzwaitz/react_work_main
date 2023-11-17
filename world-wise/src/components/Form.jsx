@@ -6,6 +6,7 @@ import styles from "./Form.module.css";
 import BackButton from "./BackButton";
 import useUrlPosition from "../hooks/useUrlPosition";
 import Spinner from "./Spinner";
+import Message from "./Message";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -77,6 +78,8 @@ function Form() {
       notes,
       position: { lat, lng },
     };
+
+    // console.log(newCity);
   }
 
   if (isLoadingGeocoding) return <Spinner />;
