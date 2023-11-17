@@ -66,7 +66,7 @@ function Map() {
           </Marker>
         ))}
         <ChangeCenter position={mapPosition} />
-        {/* <DetectClick /> */}
+        <DetectClick />
       </MapContainer>
     </div>
   );
