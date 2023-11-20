@@ -47,6 +47,7 @@ function CitiesProvider({ children }) {
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
+      setCities((cities) => [...cities, data]);
     } catch {
       alert("error loading data...");
     } finally {
