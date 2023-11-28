@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav";
+import Button from "../components/Button";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
@@ -32,9 +33,8 @@ export default function Login() {
           />
         </div>
 
-        <div>
-          <button>Login</button>
-        </div>
+        <div>{/* <button>Login</button> */}</div>
+        <Button type="primary">Login</Button>
       </form>
     </main>
   );
