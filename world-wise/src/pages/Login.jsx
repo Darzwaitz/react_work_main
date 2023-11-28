@@ -8,11 +8,15 @@ export default function Login() {
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <main className={styles.login}>
       <PageNav />
 
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -33,8 +37,9 @@ export default function Login() {
           />
         </div>
 
-        <div>{/* <button>Login</button> */}</div>
-        <Button type="primary">Login</Button>
+        <div>
+          <Button type="primary">Login</Button>
+        </div>
       </form>
     </main>
   );
