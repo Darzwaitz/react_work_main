@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav";
+import { useAuth } from "../contexts/AuthContext";
 import Button from "../components/Button";
 
 export default function Login() {
@@ -8,8 +9,12 @@ export default function Login() {
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
+  const { login } = useAuth();
+
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (email && password) login(email, password);
   }
 
   return (
