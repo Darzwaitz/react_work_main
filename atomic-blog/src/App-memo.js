@@ -57,7 +57,7 @@ function App() {
         setSearchQuery={setSearchQuery}
       />
       <Main posts={searchedPosts} onAddPost={handleAddPost} />
-      <Archive onAddPost={handleAddPost} />
+      <Archive show={true} />
       <Footer />
     </section>
   );
