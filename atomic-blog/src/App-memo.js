@@ -41,6 +41,11 @@ function App() {
     [isFakeDark]
   );
 
+  const archiveOptions = {
+    show: false,
+    title: "Post archive in addition to main posts",
+  };
+
   return (
     <section>
       <button
