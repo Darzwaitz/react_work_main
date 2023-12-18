@@ -27,7 +27,11 @@ function Calculator({ workouts, allowSound }) {
   };
 
   function handleInc() {
-    setDuration((duration) => duration + 1);
+    setDuration((duration) => Math.floor(duration) + 1);
+  }
+
+  function handleDec() {
+    setDuration((duration) => Math.ceil(duration) - 1);
   }
 
   return (
@@ -79,13 +83,13 @@ function Calculator({ workouts, allowSound }) {
         </div>
       </form>
       <section>
-        <button onClick={() => {}}>–</button>
+        <button onClick={handleDec}>–</button>
         <p>
           {mins < 10 && "0"}
           {mins}:{seconds < 10 && "0"}
           {seconds}
         </p>
-        <button onClick={() => {}}>+</button>
+        <button onClick={handleInc}>+</button>
       </section>
     </>
   );
