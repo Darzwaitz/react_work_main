@@ -32,7 +32,7 @@ function Calculator({ workouts, allowSound }) {
     function () {
       document.title = `Your ${number}-exercise workout`;
     },
-    [number]
+    [number, duration, sets]
   );
 
   // const duration = (number * sets * speed) / 60 + (sets - 1) * durationBreak;
