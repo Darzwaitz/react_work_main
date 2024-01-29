@@ -5,7 +5,11 @@ function Menu() {
   const menu = useLoaderData();
   console.log(menu);
 
-  return <h1>Menu</h1>;
+  return (
+    <h1>
+      <ul>{menu.map(pizza =>)}</ul>
+    </h1>
+  );
 }
 
 // loader function grabs data for useLoaderData
