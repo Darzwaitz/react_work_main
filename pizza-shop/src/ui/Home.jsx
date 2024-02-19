@@ -1,9 +1,9 @@
-import CreateUser from '../user/CreateUser'
+import CreateUser from '../features/user/CreateUser'
 
 function Home() {
     return (
-        <div className="mt-10 text-center">
-            <h1 className="mb-4  text-xl font-semibold">
+        <div className="my-10 text-center">
+            <h1 className="mb-8  text-xl font-semibold">
                 The best pizza.
                 <br />
                 <span className="text-yellow-500">
