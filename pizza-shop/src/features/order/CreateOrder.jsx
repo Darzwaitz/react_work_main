@@ -111,6 +111,7 @@ function CreateOrder() {
     )
 }
 // named action here as convention
+// eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }) {
     const formData = await request.formData()
     const data = Object.fromEntries(formData)

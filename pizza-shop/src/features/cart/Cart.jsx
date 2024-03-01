@@ -41,18 +41,18 @@ function Cart() {
 
             <h2 className="mt-7 text-xl font-semibold">Your cart, %NAME%</h2>
 
-            <ul className="divide-y divide-stone-200">
+            <ul className="divide-y divide-stone-200 border-b">
                 {cart.map((item) => (
-                    <CartItem item={item} key={item.key} />
+                    <CartItem item={item} key={item.pizzaId} />
                 ))}
             </ul>
 
-            <div>
+            <div className="mt-6 space-x-2 ">
                 <Button to="/order/new" type="primary">
                     Order pizzas
                 </Button>
 
-                <button>Clear cart</button>
+                <Button type="secondary">Clear Cart</Button>
             </div>
         </div>
     )
