@@ -12,7 +12,8 @@ function AppLayout() {
             {isLoading && <Loader />}
 
             <Header />
-            <div className="overflow-scroll md:overflow-hidden">
+
+            <div className="overflow-scroll  md:overflow-x-hidden">
                 <main className="mx-auto max-w-3xl">
                     <Outlet />
                 </main>
