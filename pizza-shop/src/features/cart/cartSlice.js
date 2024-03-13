@@ -71,4 +71,7 @@ export const getTotalCartQuantity = (state) =>
 export const getTotalCartPrice = (state) =>
     state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
 
+export const getCurrentQuantityById = (id) => (state) =>
+    state.cart.cart.find((item) => item.pizzaId === id)?.quantity ?? 0
+
 // performance issues can arise from multiple exports as above - option of adding a library called 'reselect' to remedy
