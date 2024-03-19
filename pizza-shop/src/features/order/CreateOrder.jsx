@@ -39,6 +39,7 @@ const isValidPhone = (str) =>
 // ]
 
 function CreateOrder() {
+    const [withPriority, setWithPriority] = useState(false)
     const username = useSelector((state) => state.user.username)
 
     const navigation = useNavigation()
@@ -53,7 +54,6 @@ function CreateOrder() {
 
     if (!cart.length) return <EmptyCart />
 
-    // const [withPriority, setWithPriority] = useState(false);
     // const cart = fakeCart
 
     return (
