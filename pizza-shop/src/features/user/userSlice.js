@@ -39,6 +39,11 @@ const userSlice = createSlice({
             state.username = action.payload
         },
     },
+    extraReducers: (builder) =>
+        builder.addCase(
+            fetchAddress.pending,
+            (state, action) => (state.status = 'loading')
+        ),
 })
 
 export const { updateName } = userSlice.actions
