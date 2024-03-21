@@ -4,10 +4,11 @@ import { createOrder } from '../../services/apiRestaurant'
 import Button from '../../ui/Button'
 import EmptyCart from '../cart/EmptyCart'
 import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import store from '../../store'
 import { formatCurrency } from '../../utils/helpers'
 import { useState } from 'react'
+import { fetchAddress } from '../user/userSlice'
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -52,6 +53,8 @@ function CreateOrder() {
     const totalCartPrice = useSelector(getTotalCartPrice)
     const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0
     const totalPrice = totalCartPrice + priorityPrice
+
+    const dispatch = useDispatch()
 
     if (!cart.length) return <EmptyCart />
 
@@ -103,6 +106,9 @@ function CreateOrder() {
                             required
                         />
                     </div>
+                    <button onClick={() => dispatch(fetchAddress())}>
+                        Get Position
+                    </button>
                 </div>
                 {/* checkbox */}
                 <div className="mb-12 flex items-center gap-5">
