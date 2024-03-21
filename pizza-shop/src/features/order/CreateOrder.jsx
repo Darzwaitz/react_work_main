@@ -96,7 +96,7 @@ function CreateOrder() {
                     </div>
                 </div>
 
-                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+                <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
                     <label className=" sm:basis-40">Address</label>
                     <div className="grow">
                         <input
@@ -106,9 +106,14 @@ function CreateOrder() {
                             required
                         />
                     </div>
-                    <button onClick={() => dispatch(fetchAddress())}>
-                        Get Position
-                    </button>
+                    <span className="absolute right-1 z-50">
+                        <Button
+                            type="small"
+                            onClick={() => dispatch(fetchAddress())}
+                        >
+                            Get Position
+                        </Button>
+                    </span>
                 </div>
                 {/* checkbox */}
                 <div className="mb-12 flex items-center gap-5">
