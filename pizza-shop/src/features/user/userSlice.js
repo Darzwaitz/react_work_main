@@ -23,6 +23,7 @@ export const fetchAddress = createAsyncThunk(
         const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`
 
         // 3) Then we return an object with the data that we are interested in
+        // payload of the fulfilled state
         return { position, address }
     }
 )
@@ -40,10 +41,19 @@ const userSlice = createSlice({
         },
     },
     extraReducers: (builder) =>
-        builder.addCase(
-            fetchAddress.pending,
-            (state, action) => (state.status = 'loading')
-        ),
+        builder
+            .addCase(fetchAddress.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchAddress.fulfilled, (state, action) => {
+                state.position = action.payload.position
+                state.address = action.payload.address
+                state.state = 'idle'
+            })
+            .addCase(fetchAddress.rejected, (state, action) => {
+                state.status = 'error'
+                state.error = action.error.message
+            }),
 })
 
 export const { updateName } = userSlice.actions
