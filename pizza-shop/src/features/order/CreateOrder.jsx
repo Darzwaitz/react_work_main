@@ -42,7 +42,12 @@ const isValidPhone = (str) =>
 
 function CreateOrder() {
     const [withPriority, setWithPriority] = useState(false)
-    const username = useSelector((state) => state.user.username)
+    const {
+        username,
+        status: addressStatus,
+        position,
+        address,
+    } = useSelector((state) => state.user)
 
     const navigation = useNavigation()
     const isSubmitting = navigation.state === 'submitting'
