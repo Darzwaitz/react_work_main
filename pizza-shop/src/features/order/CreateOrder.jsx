@@ -49,6 +49,8 @@ function CreateOrder() {
         address,
     } = useSelector((state) => state.user)
 
+    const isLoadingAddress = addressStatus === 'loading'
+
     const navigation = useNavigation()
     const isSubmitting = navigation.state === 'submitting'
 
@@ -108,20 +110,25 @@ function CreateOrder() {
                             className="input w-full"
                             type="text"
                             name="address"
+                            disabled={isLoadingAddress}
+                            defaultValue={address}
                             required
                         />
                     </div>
-                    <span className="absolute right-1 z-50">
-                        <Button
-                            type="small"
-                            onClick={(e) => {
-                                e.preventDefault()
-                                dispatch(fetchAddress())
-                            }}
-                        >
-                            Get Position
-                        </Button>
-                    </span>
+                    {!position.latitude && !position.longitude && (
+                        <span className="absolute right-1 z-50">
+                            <Button
+                                disabled={isLoadingAddress}
+                                type="small"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    dispatch(fetchAddress())
+                                }}
+                            >
+                                Get Position
+                            </Button>
+                        </span>
+                    )}
                 </div>
                 {/* checkbox */}
                 <div className="mb-12 flex items-center gap-5">
