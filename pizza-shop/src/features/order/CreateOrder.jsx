@@ -109,7 +109,10 @@ function CreateOrder() {
                     <span className="absolute right-1 z-50">
                         <Button
                             type="small"
-                            onClick={() => dispatch(fetchAddress())}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                dispatch(fetchAddress())
+                            }}
                         >
                             Get Position
                         </Button>
