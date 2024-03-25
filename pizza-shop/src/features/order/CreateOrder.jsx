@@ -114,6 +114,12 @@ function CreateOrder() {
                             defaultValue={address}
                             required
                         />
+                        {/* error msg  */}
+                        {addressStatus === 'error' && (
+                            <p className=" mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+                                {formErrors.phone}
+                            </p>
+                        )}
                     </div>
                     {!position.latitude && !position.longitude && (
                         <span className="absolute right-1 z-50">
@@ -141,7 +147,7 @@ function CreateOrder() {
                         onChange={(e) => setWithPriority(e.target.checked)}
                     />
                     <label htmlFor="priority" className="font-medium">
-                        Want to yo give your order priority?
+                        Want to give your order priority?
                     </label>
                 </div>
 
@@ -151,7 +157,10 @@ function CreateOrder() {
                         name="cart"
                         value={JSON.stringify(cart)}
                     />
-                    <Button disabled={isSubmitting} type="primary">
+                    <Button
+                        disabled={isSubmitting || isLoadingAddress}
+                        type="primary"
+                    >
                         {isSubmitting
                             ? 'Placing Order...'
                             : `Order now from ${formatCurrency(totalPrice)}`}
