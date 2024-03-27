@@ -14,9 +14,12 @@ function Order() {
 
     const fetcher = useFetcher()
 
-    useEffect(function () {
-        if (!fetcher.data) fetcher.load('/menu')
-    }, [])
+    useEffect(
+        function () {
+            if (!fetcher.data && fetcher.idle === 'idle') fetcher.load('/menu')
+        },
+        [fetcher]
+    )
 
     // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
     const {
