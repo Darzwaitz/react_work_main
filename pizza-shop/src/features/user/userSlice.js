@@ -1,12 +1,11 @@
 import { getAddress } from '../../services/apiGeocoding'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 function getPosition() {
     return new Promise(function (resolve, reject) {
         navigator.geolocation.getCurrentPosition(resolve, reject)
     })
 }
-
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const fetchAddress = createAsyncThunk(
     'user/fetchAddress',
@@ -30,6 +29,10 @@ export const fetchAddress = createAsyncThunk(
 
 const initialState = {
     username: '',
+    status: 'idle',
+    position: {},
+    address: '',
+    error: '',
 }
 
 const userSlice = createSlice({

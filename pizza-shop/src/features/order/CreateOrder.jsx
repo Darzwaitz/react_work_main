@@ -1,13 +1,13 @@
+import { useState } from 'react'
 // import { useState } from "react";
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom'
 import { createOrder } from '../../services/apiRestaurant'
 import Button from '../../ui/Button'
 import EmptyCart from '../cart/EmptyCart'
-import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice'
 import store from '../../store'
 import { formatCurrency } from '../../utils/helpers'
-import { useState } from 'react'
 import { fetchAddress } from '../user/userSlice'
 
 // https://uibakery.io/regex-library/phone-number
@@ -56,13 +56,12 @@ function CreateOrder() {
     const isSubmitting = navigation.state === 'submitting'
 
     const formErrors = useActionData()
+    const dispatch = useDispatch()
 
     const cart = useSelector(getCart)
     const totalCartPrice = useSelector(getTotalCartPrice)
     const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0
     const totalPrice = totalCartPrice + priorityPrice
-
-    const dispatch = useDispatch()
 
     if (!cart.length) return <EmptyCart />
 
@@ -74,7 +73,7 @@ function CreateOrder() {
                 Ready to order? Let&apos;s go!
             </h2>
 
-            <Form method="POST" action="">
+            <Form method="POST">
                 <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
                     <label className=" sm:basis-40">First Name</label>
                     <input
@@ -95,7 +94,6 @@ function CreateOrder() {
                             name="phone"
                             required
                         />
-                        {/* error msg  */}
                         {formErrors?.phone && (
                             <p className=" mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
                                 {formErrors.phone}
@@ -122,6 +120,7 @@ function CreateOrder() {
                             </p>
                         )}
                     </div>
+
                     {!position.latitude && !position.longitude && (
                         <span className="absolute right-1 top-[3px] z-50 sm:right-[5px] md:top-[5px]">
                             <Button
