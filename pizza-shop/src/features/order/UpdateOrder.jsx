@@ -16,7 +16,7 @@ function UpdateOrder() {
 export default UpdateOrder
 
 // eslint-disable-next-line no-unused-vars
-async function action({ params }) {
+export async function action({ params }) {
     const data = { priority: true }
     await updateOrder(params.orderId, data)
     return null
