@@ -16,12 +16,24 @@ const Button = styled.button`
   color: white;
 `;
 
+const Input = styled.input`
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+`;
+
+const StyledApp = styled.main`
+  background-color: blue;
+  padding: 20px;
+`;
 function App() {
   return (
-    <div>
+    <StyledApp>
       <H1>Header title</H1>
-      <Button>Check In</Button>
-    </div>
+      <Button onClick={() => alert("tesht")}>Check In</Button>
+
+      <Input type="number" placeholder="Number of guests" />
+    </StyledApp>
   );
 }
 
