@@ -1,3 +1,5 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
 import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import { Button } from "./Button";
