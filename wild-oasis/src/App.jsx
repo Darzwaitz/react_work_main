@@ -15,6 +15,7 @@ const StyledApp = styled.main`
   background-color: blue;
   padding: 20px;
 `;
+
 function App() {
   return (
     <>
