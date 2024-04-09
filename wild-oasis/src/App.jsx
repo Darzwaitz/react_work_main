@@ -16,9 +16,11 @@ function App() {
     <>
       <GlobalStyles />
       <StyledApp>
-        <Heading>Header title</Heading>
+        <Heading as="h1">Header title</Heading>
+        <Heading as="h2">Check in - Check out</Heading>
         <Button onClick={() => alert("tesht")}>Check In</Button>
 
+        <Heading as="h3">Form</Heading>
         <Input type="number" placeholder="Number of guests" />
       </StyledApp>
     </>
