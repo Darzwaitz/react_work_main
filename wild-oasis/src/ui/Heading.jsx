@@ -20,7 +20,7 @@ ${(props) =>
       font-size: 1rem;
       font-weight: 500;
     `}
-    color: white;
+    color: black;
 `;
 
 export default Heading;
