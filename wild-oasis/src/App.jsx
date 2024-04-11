@@ -22,10 +22,14 @@ function App() {
             <Heading as="h1">Header title</Heading>
             <div>
               <Heading as="h2">Check in - Check out</Heading>
-              <Button variation onClick={() => alert("tesht")}>
-                Check In
+              <Button onClick={() => alert("tesht")}>Check In</Button>
+              <Button
+                $variation="secondary"
+                $size="small"
+                onClick={() => alert("tesht")}
+              >
+                Check Out
               </Button>
-              <Button onClick={() => alert("tesht")}>Check Out</Button>
             </div>
           </Row>
           <Row>
