@@ -39,8 +39,18 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 
+// eslint-disable-next-line react/prop-types
 function CabinRow({ cabin }) {
-  return <div></div>;
+  const { name, maxCapacity, regularPrice, discount, image } = cabin;
+
+  return (
+    <TableRow role="row">
+      {/* <Img src={image} />
+      <Cabin>{name}</Cabin>
+      <div>Fit&apos;s up to {maxCapacity} guests</div>
+      <Price>{formatCurrency}</Price> */}
+    </TableRow>
+  );
 }
 
 export default CabinRow;
