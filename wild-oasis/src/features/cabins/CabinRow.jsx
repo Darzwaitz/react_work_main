@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { formatCurrency } from "../../utils/helpers";
 
 const TableRow = styled.div`
   display: grid;
@@ -41,14 +42,17 @@ const Discount = styled.div`
 
 // eslint-disable-next-line react/prop-types
 function CabinRow({ cabin }) {
+  // eslint-disable-next-line react/prop-types
   const { name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
     <TableRow role="row">
-      {/* <Img src={image} />
+      <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>Fit&apos;s up to {maxCapacity} guests</div>
-      <Price>{formatCurrency}</Price> */}
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <button>Delete</button>
     </TableRow>
   );
 }
