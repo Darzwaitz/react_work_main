@@ -46,6 +46,7 @@ const Discount = styled.div`
 function CabinRow({ cabin }) {
   // eslint-disable-next-line react/prop-types
   const {
+    // eslint-disable-next-line react/prop-types
     id: cabinId,
     name,
     maxCapacity,
@@ -54,7 +55,8 @@ function CabinRow({ cabin }) {
     image,
   } = cabin;
 
-  const { isLoading, mutate } = useMutation({
+  // const { isLoading, mutate } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: (id) => deleteCabin(id),
   });
 
