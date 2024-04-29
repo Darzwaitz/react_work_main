@@ -56,7 +56,7 @@ function CabinRow({ cabin }) {
   } = cabin;
 
   const { isLoading: isDeleting, mutate } = useMutation({
-    mutationFn: (id) => deleteCabin(id),
+    mutationFn: deleteCabin,
   });
 
   return (
