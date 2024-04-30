@@ -5,7 +5,7 @@ export async function getCabins() {
 
   if (error) {
     console.error(error);
-    throw new Error("Cabinz couldnt be loaded");
+    throw new Error("Cabin couldnt be loaded");
   }
 
   return data;
@@ -16,7 +16,7 @@ export async function deleteCabin(id) {
 
   if (error) {
     console.error(error);
-    throw new Error("Cabinz couldnt not be deleted");
+    throw new Error("Cabin could not be deleted");
   }
 
   return data;
