@@ -29,7 +29,11 @@ export async function createCabin(newCabin) {
     console.error(error);
     throw new Error("Cabin could not be created");
   }
+
+  const { error: storageError } = await supabase.storage;
+
   // upload image
+
   return data;
 }
 
