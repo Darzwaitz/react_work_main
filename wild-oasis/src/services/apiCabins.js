@@ -30,7 +30,10 @@ export async function createCabin(newCabin) {
     throw new Error("Cabin could not be created");
   }
 
-  const { error: storageError } = await supabase.storage;
+  const { error: storageError } = await supabase.storage.from(id).upload(path, {
+    cacheControl: "3600",
+    upsert: false,
+  });
 
   // upload image
 
