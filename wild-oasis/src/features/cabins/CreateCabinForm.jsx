@@ -11,7 +11,9 @@ import FormRow from "../../ui/FormRow";
 import { useForm } from "react-hook-form";
 import { createCabin } from "../../services/apiCabins";
 
-function CreateCabinForm() {
+function CreateCabinForm({ cabinToEdit = {} }) {
+  const { id: editId, ...editValues } = cabinToEdit;
+
   const { register, handleSubmit, reset, getValues, formState } = useForm();
 
   const { errors } = formState;
