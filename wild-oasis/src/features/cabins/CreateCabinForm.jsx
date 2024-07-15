@@ -1,5 +1,3 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 import Input from "../../ui/Input";
@@ -10,7 +8,7 @@ import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
 
 import { useCreateCabin } from "./useCreateCabin";
-import { createEditCabin } from "../../services/apiCabins";
+import { useEditCabin } from "./useEditCabin";
 
 function CreateCabinForm({ cabinToEdit = {} }) {
   const { id: editId, ...editValues } = cabinToEdit;
@@ -24,6 +22,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
   // console.log(errors);
 
   const { isCreating, createCabin } = useCreateCabin();
+  const { isEditing, editCabin } = useEditCabin();
 
   const isWorking = isCreating || isEditing;
 
@@ -33,13 +32,15 @@ function CreateCabinForm({ cabinToEdit = {} }) {
     if (isEditSession)
       editCabin(
         { newCabinData: { ...data, image }, id: editId },
-        { onSuccess: (data) => reset() }
+        // { onSuccess: (data) => reset() }
+        { onSuccess: () => reset() }
       );
     else
       createCabin(
         { ...data, image: image },
         {
-          onSuccess: (data) => {
+          // onSuccess: (data) => {
+          onSuccess: () => {
             reset();
           },
         }
