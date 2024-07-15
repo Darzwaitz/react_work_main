@@ -11,6 +11,10 @@ import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
 
 function CreateCabinForm({ cabinToEdit = {} }) {
+  const { isCreating, createCabin } = useCreateCabin();
+  const { isEditing, editCabin } = useEditCabin();
+  const isWorking = isCreating || isEditing;
+
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
 
@@ -20,11 +24,6 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
   const { errors } = formState;
   // console.log(errors);
-
-  const { isCreating, createCabin } = useCreateCabin();
-  const { isEditing, editCabin } = useEditCabin();
-
-  const isWorking = isCreating || isEditing;
 
   function onSubmit(data) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
