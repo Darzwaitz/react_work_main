@@ -93,7 +93,7 @@ export default function App() {
     <div>
       <h1>Render Props Demo</h1>
 
-      <div className="col-2">
+      {/* <div className="col-2">
         <List
           title="Products"
           items={products}
@@ -112,6 +112,11 @@ export default function App() {
             />
           )}
         />
+      </div> */}
+
+      <div className="col-2">
+        <ProductList title="Products HOC" items={products} />
+        <ProductListWithToggles title="Products HOC" items={products} />
       </div>
     </div>
   );
