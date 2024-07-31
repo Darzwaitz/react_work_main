@@ -12,17 +12,17 @@ const StyledModal = styled.div`
   transition: all 0.5s;
 `;
 
-// const Overlay = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100vh;
-//   background-color: var(--backdrop-color);
-//   backdrop-filter: blur(4px);
-//   z-index: 1000;
-//   transition: all 0.5s;
-// `;
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  transition: all 0.5s;
+`;
 
 // const Button = styled.button`
 //   background: none;
@@ -49,8 +49,14 @@ const StyledModal = styled.div`
 //   }
 // `;
 
-function Modal() {
-  return <StyledModal>Modal</StyledModal>;
+function Modal({ children }) {
+  return (
+    <Overlay>
+      <StyledModal>
+        <div>{children}</div>
+      </StyledModal>
+    </Overlay>
+  );
 }
 
 export default Modal;
