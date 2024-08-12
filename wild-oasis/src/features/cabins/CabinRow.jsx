@@ -8,6 +8,7 @@ import CreateCabinForm from "../../features/cabins/CreateCabinForm";
 import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
+import useDeleteCabin from "./useDeleteCabin";
 
 const TableRow = styled.div`
   display: grid;
@@ -54,6 +55,7 @@ function CabinRow({ cabin }) {
   // hook not created useDeleteCabin - may need to create it later, or maybe not
 
   const { isCreating, createCabin } = useCreateCabin();
+  const { isDeleting, deleteCabin } = useDeleteCabin();
 
   // eslint-disable-next-line react/prop-types
   const {
@@ -78,20 +80,7 @@ function CabinRow({ cabin }) {
     });
   }
 
-  const queryClient = useQueryClient();
-
-  // THIS may need to go into a custom hook
-  const { isLoading: isDeleting, mutate } = useMutation({
-    mutationFn: deleteCabin,
-    onSuccess: () => {
-      toast.success("Cabin successfully deleted");
-
-      queryClient.invalidateQueries({
-        queryKey: ["cabins"],
-      });
-    },
-    onError: (err) => toast.error(err.message),
-  });
+  // const queryClient = useQueryClient();
 
   return (
     <TableRow role="row">
