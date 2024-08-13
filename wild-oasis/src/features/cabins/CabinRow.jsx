@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { formatCurrency } from "../../utils/helpers";
-import { useState } from "react";
+// import { useState } from "react";
 import CreateCabinForm from "../../features/cabins/CreateCabinForm";
+// import { useDeleteCabin } from "./useDeleteCabin";
+import { formatCurrency } from "../../utils/helpers";
 // import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 import { HiPencil, HiSquare2Stack } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
-import useDeleteCabin from "./useDeleteCabin";
 
 const TableRow = styled.div`
   display: grid;
@@ -49,16 +49,13 @@ const Discount = styled.div`
 
 // eslint-disable-next-line react/prop-types
 function CabinRow({ cabin }) {
-  const [showForm, setShowForm] = useState(false);
-  // hook not created useDeleteCabin - may need to create it later, or maybe not
-
+  // const { isDeleting, deleteCabin } = useDeleteCabin();
   const { isCreating, createCabin } = useCreateCabin();
-  const { isDeleting, deleteCabin } = useDeleteCabin();
 
   // eslint-disable-next-line react/prop-types
   const {
     // eslint-disable-next-line react/prop-types
-    id: cabinId,
+    // id: cabinId,
     name,
     maxCapacity,
     regularPrice,
@@ -98,7 +95,8 @@ function CabinRow({ cabin }) {
         </button>
         <Modal>
           <Modal.Open>
-            <button onClick={() => setShowForm((show) => !show)}>
+            {/* <button onClick={() => setShowForm((show) => !show)}> */}
+            <button>
               <HiPencil />
             </button>
           </Modal.Open>
