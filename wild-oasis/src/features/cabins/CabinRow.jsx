@@ -1,7 +1,6 @@
 import styled from "styled-components";
-// import { useState } from "react";
 import CreateCabinForm from "../../features/cabins/CreateCabinForm";
-// import { useDeleteCabin } from "./useDeleteCabin";
+import { useDeleteCabin } from "./useDeleteCabin";
 import { formatCurrency } from "../../utils/helpers";
 // import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 import { HiPencil, HiSquare2Stack } from "react-icons/hi2";
@@ -49,13 +48,13 @@ const Discount = styled.div`
 
 // eslint-disable-next-line react/prop-types
 function CabinRow({ cabin }) {
-  // const { isDeleting, deleteCabin } = useDeleteCabin();
+  const { isDeleting, deleteCabin } = useDeleteCabin();
   const { isCreating, createCabin } = useCreateCabin();
 
   // eslint-disable-next-line react/prop-types
   const {
     // eslint-disable-next-line react/prop-types
-    // id: cabinId,
+    id: cabinId,
     name,
     maxCapacity,
     regularPrice,
@@ -95,7 +94,6 @@ function CabinRow({ cabin }) {
         </button>
         <Modal>
           <Modal.Open>
-            {/* <button onClick={() => setShowForm((show) => !show)}> */}
             <button>
               <HiPencil />
             </button>
@@ -103,6 +101,10 @@ function CabinRow({ cabin }) {
           <Modal.Window>
             <CreateCabinForm cabinToEdit={cabin} />
           </Modal.Window>
+
+          <button disabled={isDeleting} onClick={() => deleteCabin(cabinId)}>
+            <HiSquare2Stack />
+          </button>
         </Modal>
       </div>
     </TableRow>
