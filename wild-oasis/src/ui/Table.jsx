@@ -73,12 +73,20 @@ function Table({ columns, children }) {
 function Header({ children }) {
   const { columns } = useContext(TableContext);
   return (
+    <StyledHeader role="row" columns={columns} as="header">
+      {children}
+    </StyledHeader>
+  );
+}
+function Row({ children }) {
+  const { columns } = useContext(TableContext);
+  return (
     <StyledHeader role="row" columns={columns}>
       {children}
     </StyledHeader>
   );
 }
-function Row({ children }) {}
+
 function Body({ children }) {}
 
 Table.Header = Header;
