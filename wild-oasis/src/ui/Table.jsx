@@ -29,17 +29,17 @@ const StyledHeader = styled(CommonRow)`
   color: var(--color-grey-600);
 `;
 
-const StyledRow = styled(CommonRow)`
-  padding: 1.2rem 2.4rem;
+// const StyledRow = styled(CommonRow)`
+//   padding: 1.2rem 2.4rem;
 
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--color-grey-100);
-  }
-`;
+//   &:not(:last-child) {
+//     border-bottom: 1px solid var(--color-grey-100);
+//   }
+// `;
 
-const StyledBody = styled.section`
-  margin: 0.4rem 0;
-`;
+// const StyledBody = styled.section`
+//   margin: 0.4rem 0;
+// `;
 
 const Footer = styled.footer`
   background-color: var(--color-grey-50);
@@ -53,12 +53,12 @@ const Footer = styled.footer`
   }
 `;
 
-const Empty = styled.p`
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-align: center;
-  margin: 2.4rem;
-`;
+// const Empty = styled.p`
+//   font-size: 1.6rem;
+//   font-weight: 500;
+//   text-align: center;
+//   margin: 2.4rem;
+// `;
 
 const TableContext = createContext();
 
@@ -87,6 +87,7 @@ function Row({ children }) {
   );
 }
 
+// eslint-disable-next-line no-unused-vars
 function Body({ children }) {}
 
 Table.Header = Header;
