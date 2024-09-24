@@ -1,4 +1,4 @@
-import BookingRow from "./BookingRow";
+// import BookingRow from "./BookingRow";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import Empty from "../../ui/Empty";
@@ -25,12 +25,12 @@ function BookingTable() {
           <div></div>
         </Table.Header>
 
-        <Table.Body
+        {/* <Table.Body
           data={bookings}
           render={(booking) => (
             <BookingRow key={booking.id} booking={booking} />
           )}
-        />
+        /> */}
       </Table>
     </Menus>
   );
