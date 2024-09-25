@@ -2,7 +2,7 @@ import styled from "styled-components";
 import CreateCabinForm from "../../features/cabins/CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabin";
 import { formatCurrency } from "../../utils/helpers";
-import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
+// import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
@@ -96,16 +96,19 @@ function CabinRow({ cabin }) {
             <Menus.Toggle id={cabinId} />
 
             <Menus.List id={cabinId}>
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              {/* <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}> */}
+              <Menus.Button icon={"icon"} onClick={handleDuplicate}>
                 Duplicate
               </Menus.Button>
 
               <Modal.Open opens="edit">
-                <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
+                {/* <Menus.Button icon={<HiPencil />}>Edit</Menus.Button> */}
+                <Menus.Button icon={"icon"}>Edit</Menus.Button>
               </Modal.Open>
 
               <Modal.Open opens="delete">
-                <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
+                {/* <Menus.Button icon={<HiTrash />}>Delete</Menus.Button> */}
+                <Menus.Button icon={"icon"}>Delete</Menus.Button>
               </Modal.Open>
             </Menus.List>
 
