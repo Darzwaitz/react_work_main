@@ -1,13 +1,19 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import {
-  HiOutlineCalendarDays,
-  HiOutlineCog6Tooth,
-  HiOutlineHome,
-  HiOutlineHomeModern,
-} from "react-icons/hi2";
-import { HiOutlineUsers } from "react-icons/hi";
+// import {
+//   HiOutlineCalendarDays,
+//   HiOutlineCog6Tooth,
+//   HiOutlineHome,
+//   HiOutlineHomeModern,
+// } from "react-icons/hi2";
+// import { HiOutlineUsers } from "react-icons/hi";
 // import { HiOutlineHome } from "react-icons/hi2";
+
+import { TfiHome } from "react-icons/tfi";
+import { IoCalendarOutline } from "react-icons/io5";
+import { MdOutlineVilla } from "react-icons/md";
+import { PiUsersDuotone } from "react-icons/pi";
+import { CiSettings } from "react-icons/ci";
 
 const NavList = styled.ul`
   display: flex;
@@ -60,31 +66,31 @@ function MainNav() {
       <NavList>
         <li>
           <StyledNavLink to="/dashboard">
-            <HiOutlineHome />
+            <TfiHome />
             <span>Home</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/bookings">
-            <HiOutlineCalendarDays />
+            <IoCalendarOutline />
             <span>Bookings</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/cabins">
-            <HiOutlineHomeModern />
+            <MdOutlineVilla />
             <span>Cabins</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/users">
-            <HiOutlineUsers />
+            <PiUsersDuotone />
             <span>Users</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/settings">
-            <HiOutlineCog6Tooth />
+            <CiSettings />
             <span>Settings</span>
           </StyledNavLink>
         </li>

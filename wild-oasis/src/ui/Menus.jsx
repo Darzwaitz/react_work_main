@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
-import { HiEllipsisVertical } from "react-icons/hi2";
+// import { HiEllipsisVertical } from "react-icons/hi2";
+import { VscKebabVertical } from "react-icons/vsc";
 import styled from "styled-components";
 
 import { useOutsideClick } from "../hooks/useOutsideClick";
@@ -12,6 +13,9 @@ const Menu = styled.div`
 `;
 
 const StyledToggle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   padding: 0.4rem;
@@ -100,7 +104,8 @@ function Toggle({ id }) {
 
   return (
     <StyledToggle onClick={handleClick}>
-      <HiEllipsisVertical />
+      {/* <HiEllipsisVertical /> */}
+      <VscKebabVertical />
     </StyledToggle>
   );
 }
