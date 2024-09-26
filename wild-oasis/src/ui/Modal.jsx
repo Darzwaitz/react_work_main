@@ -1,6 +1,7 @@
 import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
-import { HiXMark } from "react-icons/hi2";
+// import { HiXMark } from "react-icons/hi2";
+import { VscChromeClose } from "react-icons/vsc";
 import styled from "styled-components";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
@@ -85,7 +86,7 @@ function Window({ children, name }) {
     <Overlay>
       <StyledModal ref={ref}>
         <Button onClick={close}>
-          <HiXMark />
+          <VscChromeClose />
         </Button>
         <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
