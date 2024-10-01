@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { VscChevronLeft } from "react-icons/vsc";
+import { VscChevronRight } from "react-icons/vsc";
+import { useSearchParams } from "react-router-dom";
 
 const StyledPagination = styled.div`
   width: 100%;
@@ -56,23 +59,34 @@ const PaginationButton = styled.button`
   }
 `;
 
+const PAGE_SIZE = 10;
+
 function Pagination({ count }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = !searchParams.get("page")
+    ? 1
+    : Number(searchParams.get("page"));
+
+  const pageCount = Math.ceil(count / PAGE_SIZE);
+
   function nextPage() {}
   function prevPage() {}
 
   return (
     <StyledPagination>
       <P>
-        Showing <span>1</span> to <span>10</span> of <span>{count}</span>{" "}
+        Showing <span>1</span> to <span>10</span> of <span>{count}</span>
         results
       </P>
 
       <Buttons>
         <PaginationButton onClick={prevPage}>
+          <VscChevronLeft />
           <span>Previous</span>
         </PaginationButton>
         <PaginationButton onClick={nextPage}>
           <span>Next</span>
+          <VscChevronRight />
         </PaginationButton>
       </Buttons>
     </StyledPagination>
