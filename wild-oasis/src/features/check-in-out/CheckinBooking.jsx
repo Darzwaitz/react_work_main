@@ -1,4 +1,4 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 import BookingDataBox from "../../features/bookings/BookingDataBox";
 
 import Row from "../../ui/Row";
@@ -8,27 +8,30 @@ import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 
 import { useMoveBack } from "../../hooks/useMoveBack";
+import { useBooking } from "../bookings/useBooking";
+import Spinner from "../../ui/Spinner";
 
-const Box = styled.div`
-  /* Box */
-  background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
-  border-radius: var(--border-radius-md);
-  padding: 2.4rem 4rem;
-`;
+// const Box = styled.div`
+//   /* Box */
+//   background-color: var(--color-grey-0);
+//   border: 1px solid var(--color-grey-100);
+//   border-radius: var(--border-radius-md);
+//   padding: 2.4rem 4rem;
+// `;
 
 function CheckinBooking() {
+  const { booking, isLoading } = useBooking();
   const moveBack = useMoveBack();
 
-  const booking = {};
+  if (isLoading) return <Spinner />;
 
   const {
     id: bookingId,
-    guests,
-    totalPrice,
-    numGuests,
-    hasBreakfast,
-    numNights,
+    // guests,
+    // totalPrice,
+    // numGuests,
+    // hasBreakfast,
+    // numNights,
   } = booking;
 
   function handleCheckin() {}
