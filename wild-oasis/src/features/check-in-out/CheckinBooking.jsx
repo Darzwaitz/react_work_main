@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BookingDataBox from "../../features/bookings/BookingDataBox";
+import { useSettings } from "../settings/useSettings";
 
 import Row from "../../ui/Row";
 import Heading from "../../ui/Heading";
@@ -28,6 +29,7 @@ function CheckinBooking() {
   const [confirmPaid, setConfirmPaid] = useState(false);
   const [addBreakfast, setAddBreakfast] = useState(false);
   const { booking, isLoading } = useBooking();
+  const { settings, isLoading: isLoadingSettings } = useSettings();
 
   useEffect(() => setConfirmPaid(booking?.isPaid ?? false), [booking]);
 
