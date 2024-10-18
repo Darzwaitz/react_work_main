@@ -31,6 +31,7 @@ function CheckinBooking() {
   const { booking, isLoading } = useBooking();
   // const { settings, isLoading: isLoadingSettings } = useSettings();
   const { settings } = useSettings();
+  console.log(settings);
 
   useEffect(() => setConfirmPaid(booking?.isPaid ?? false), [booking]);
 
@@ -49,7 +50,7 @@ function CheckinBooking() {
   } = booking;
 
   const optionalBreakfastPrice =
-    settings.breakfastPrice * numNights * numGuests;
+    settings?.breakfastPrice * numNights * numGuests;
 
   function handleCheckin() {
     if (!confirmPaid) return;
@@ -80,17 +81,19 @@ function CheckinBooking() {
         </Box>
       )}
 
-      <Box>
-        <Checkbox
-          checked={confirmPaid}
-          onChange={() => setConfirmPaid((confirm) => !confirm)}
-          disabled={confirmPaid || isCheckingIn}
-          id="confirm"
-        >
-          I confirm that {guests.fullName} has paid the total amount of{" "}
-          {formatCurrency(totalPrice)}
-        </Checkbox>
-      </Box>
+      {!hasBreakfast && (
+        <Box>
+          <Checkbox
+            checked={confirmPaid}
+            onChange={() => setConfirmPaid((confirm) => !confirm)}
+            disabled={confirmPaid || isCheckingIn}
+            id="confirm"
+          >
+            I confirm that {guests.fullName} has paid the total amount of{" "}
+            {formatCurrency(totalPrice)}
+          </Checkbox>
+        </Box>
+      )}
 
       <ButtonGroup>
         <Button onClick={handleCheckin} disabled={!confirmPaid || isCheckingIn}>
