@@ -106,6 +106,13 @@ function BookingRow({
               Check in
             </Menus.Button>
           )}
+
+          {/* arrow down icon to insert */}
+          {status === "checked-in" && (
+            <Menus.Button icon={"*icon"} onClick={() => {}}>
+              Check out
+            </Menus.Button>
+          )}
         </Menus.List>
       </Menus.Menu>
     </Table.Row>
