@@ -1,7 +1,15 @@
 import ButtonIcon from "../../ui/ButtonIcon";
+import { useLogout } from "./useLogout";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function Logout() {
-  return <ButtonIcon>{"log out icon"}</ButtonIcon>;
+  const { logout, isLoading } = useLogout();
+
+  return (
+    <ButtonIcon disabled={isLoading} onClick={logout}>
+      {!isLoading ? "log out icon" : <SpinnerMini />}
+    </ButtonIcon>
+  );
 }
 
 export default Logout;
