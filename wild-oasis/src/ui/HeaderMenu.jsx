@@ -14,7 +14,9 @@ function HeaderMenu() {
   return (
     <StyledHeaderMenu>
       <li>
-        <ButtonIcon onClick={() => navigate("/account")}></ButtonIcon>
+        <ButtonIcon onClick={() => navigate("/account")}>
+          Account button
+        </ButtonIcon>
       </li>
       <li>
         <Logout />
