@@ -34,6 +34,7 @@ function UserAvatar() {
         alt={`Avatar of ${fullName}`}
       />
       <span>{fullName}</span> */}
+      <span>Avatar</span>
     </StyledUserAvatar>
   );
 }
