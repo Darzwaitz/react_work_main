@@ -13,6 +13,8 @@ function SignupForm() {
   const { errors } = formState;
 
   function onSubmit({ fullName, email, password }) {
+    console.log("new user");
+    console.log(fullName, email, password);
     signup(
       { fullName, email, password },
       {
@@ -80,8 +82,8 @@ function SignupForm() {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        disabled={isLoading}
-        <Button variation="secondary" type="reset">
+
+        <Button disabled={isLoading} variation="secondary" type="reset">
           Cancel
         </Button>
         <Button disabled={isLoading}>Create new user</Button>
